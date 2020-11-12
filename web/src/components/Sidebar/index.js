@@ -12,8 +12,6 @@ const Sidebar = () => {
 		})
 	}, [])
 
-	console.log(opened)
-
 	return (
 		<Dock
 			isVisible={opened}
@@ -29,6 +27,16 @@ const Sidebar = () => {
 					{[1, 2, 3, 4, 5].map((p) => (
 						<ProductList />
 					))}
+				</div>
+
+				<div className="row align-items-end footer">
+					<div className="col-12 d-flex justify-content-between align-items-center">
+						<b className="d-inline-block">Total</b>
+						<h3 className="d-inline-block">R$ 90,00</h3>
+					</div>
+					<button className="btn btn-block btn-lg btn-primary rounded-0 h-50 align-items-center">
+						Finalizar Compra
+					</button>
 				</div>
 			</div>
 		</Dock>

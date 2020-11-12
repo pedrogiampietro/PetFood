@@ -5,7 +5,7 @@ import { ShoppingCart } from '@material-ui/icons'
 
 import './styles.css'
 
-const Header = ({ whiteVersion }) => {
+const Header = ({ whiteVersion, hideCart }) => {
 	const openDrawer = () => {
 		const event = new CustomEvent('openCart')
 		window.dispatchEvent(event)
@@ -20,13 +20,15 @@ const Header = ({ whiteVersion }) => {
 					alt="Logo"
 				/>
 			</header>
-			<button
-				className="btn btn-secondary cart-button"
-				onClick={() => openDrawer()}
-			>
-				<ShoppingCart />
-				(2) Itens
-			</button>
+			{!hideCart && (
+				<button
+					className="btn btn-secondary cart-button"
+					onClick={() => openDrawer()}
+				>
+					<ShoppingCart />
+					(2) Itens
+				</button>
+			)}
 		</div>
 	)
 }
