@@ -1,5 +1,7 @@
 import Header from '../../components/Header'
+import ProductCard from '../../components/Product/Card'
 import { Star, AttachMoneyOutlined, GpsFixed } from '@material-ui/icons'
+
 import './styles.css'
 
 const Petshop = () => {
@@ -22,12 +24,23 @@ const Petshop = () => {
 								<b>2.8</b>
 							</text>
 							<AttachMoneyOutlined />
-							<text>$</text>
+							<text>
+								<b>$</b>
+							</text>
 							<GpsFixed />
+							<text>
+								<b>2.4 km</b>
+							</text>
 						</div>
 						<label className="badge badge-primary">Frete Gratis</label>
 					</div>
-					<div className="col-10"></div>
+					<div className="col-10">
+						<h5>Produtos</h5>
+						<br />
+						<div className="row">
+							<ProductCard />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
