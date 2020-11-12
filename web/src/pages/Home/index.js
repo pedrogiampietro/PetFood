@@ -5,7 +5,7 @@ import './styles.css'
 
 const Home = () => {
 	return (
-		<div className="h100">
+		<div className="h-100">
 			<Header hideCart />
 
 			<div className="container-fluid petshop-list-container">

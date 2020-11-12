@@ -13,7 +13,7 @@ const PetshopMap = () => {
 				/>
 			</div>
 
-			<div className="d-inline-block pf-3 align-bottom">
+			<div className="d-inline-block pl-3 align-bottom">
 				<b>PetLove</b>
 				<div className="petshop-infos">
 					<Star className="star-container" />
