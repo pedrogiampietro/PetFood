@@ -3,7 +3,7 @@ import types from './types'
 
 const INITIAL_STATE = {
   customer: {},
-  petshops: {},
+  petshops: [],
 }
 
 function shop(state = INITIAL_STATE, action) {
