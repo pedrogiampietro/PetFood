@@ -1,3 +1,5 @@
+import React from 'react'
+import { useDispatch, useState } from 'react-redux'
 import Header from '../../components/Header'
 import ProductCard from '../../components/Product/Card'
 import { Star, AttachMoneyOutlined, GpsFixed } from '@material-ui/icons'
@@ -5,6 +7,12 @@ import { Star, AttachMoneyOutlined, GpsFixed } from '@material-ui/icons'
 import './styles.css'
 
 const Petshop = () => {
+
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch()
+  }, [])
   return (
     <div className="h-100">
       <Header />
