@@ -1,18 +1,20 @@
 import React from 'react'
-import { useDispatch, useState } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { requestPetshop } from '../../store/modules/shop/actions'
 import Header from '../../components/Header'
 import ProductCard from '../../components/Product/Card'
 import { Star, AttachMoneyOutlined, GpsFixed } from '@material-ui/icons'
 
 import './styles.css'
 
-const Petshop = () => {
-
+const Petshop = ({ match }) => {
   const dispatch = useDispatch()
+  const { petshop } = useSelector((state) => state.shop)
 
   React.useEffect(() => {
-    dispatch()
+    dispatch(requestPetshop(match.params.id))
   }, [])
+
   return (
     <div className="h-100">
       <Header />
@@ -21,11 +23,11 @@ const Petshop = () => {
         <div className="row">
           <div className="col-2">
             <img
-              src="https://www.petlove.com.br/static/uploads/banner_image/image/4304/logo-petlove-push.png"
+              src={petshop.logo}
               className="img-fluid petshop-image"
               alt="Logo"
             />
-            <b>PetLove</b>
+            <b>{petshop.name}</b>
             <div className="petshop-infos">
               <Star className="star-container" />
               <text>
@@ -46,7 +48,9 @@ const Petshop = () => {
             <h5>Produtos</h5>
             <br />
             <div className="row">
-              <ProductCard />
+              {petshop.products?.map((p) => (
+                <ProductCard product={p} />
+              ))}
             </div>
           </div>
         </div>

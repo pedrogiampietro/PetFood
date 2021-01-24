@@ -9,19 +9,19 @@ import Sidebar from './components/Sidebar'
 import './styles/global.css'
 
 const Routes = () => {
-	return (
-		<>
-			<BrowserRouter>
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<Route path="/petshop/:id" exact component={Petshop} />
-					<Route path="/checkout" exact component={Checkout} />
-					<Route path="/register" exact component={Register} />
-				</Switch>
-			</BrowserRouter>
-			<Sidebar />
-		</>
-	)
+  return (
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/petshop/:id" exact component={Petshop} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/register" exact component={Register} />
+        </Switch>
+        <Sidebar />
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default Routes
