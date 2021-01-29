@@ -4,9 +4,8 @@ import './styles.css'
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch()
-
   const { cart } = useSelector((state) => state.shop)
-  const added = cart.findIndex((p) => p._id == product._id) !== -1
+  const added = cart.findIndex((p) => p._id === product._id) !== -1
 
   return (
     <div className="product col-3">

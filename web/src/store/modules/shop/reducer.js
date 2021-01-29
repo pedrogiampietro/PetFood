@@ -5,19 +5,48 @@ const INITIAL_STATE = {
   customer: {},
   petshops: [],
   petshop: {},
-  petshopMapSelected: null,
+  petShopSelected: null,
   mapCenter: {
-    lat: -22.8156632,
-    lng: -43.2127449,
+    lat: -23.561684,
+    lng: -46.625378,
   },
   cart: [],
+  transactionFee: 0.1,
+  defaultRecipient: {
+    recipient_id: 're_ckj0k9s4k02ci0g9tg6hhwlvj',
+    percentage: 10,
+    liable: true,
+  },
+  transaction: {
+    amount: 0,
+    card_number: '',
+    card_cvv: '',
+    card_expiration_date: '',
+    card_holder_name: '',
+    customer: {},
+    billing: {
+      name: 'Petfood LTDA',
+      address: {
+        country: 'br',
+        state: 'sp',
+        city: 'Aparecida',
+        neighborhood: 'Centro',
+        street: 'Rua central',
+        street_number: '9999',
+        zipcode: '06714360',
+      },
+    },
+    shipping: {},
+    items: [],
+    split_rules: [],
+  },
 }
 
 function shop(state = INITIAL_STATE, action) {
   switch (action.type) {
     case types.SET_CUSTOMER: {
       return produce(state, (draft) => {
-        draft.customer = action.customer
+        draft.transaction.customer = action.customer
       })
     }
 
@@ -32,6 +61,7 @@ function shop(state = INITIAL_STATE, action) {
         draft.petshopMapSelected = action.petshop
       })
     }
+
     case types.SET_MAP_CENTER: {
       return produce(state, (draft) => {
         draft.mapCenter = action.location
@@ -52,6 +82,12 @@ function shop(state = INITIAL_STATE, action) {
         } else {
           draft.cart.push(action.product)
         }
+      })
+    }
+
+    case types.SET_TRANSACTION: {
+      return produce(state, (draft) => {
+        draft.transaction = { ...draft.transaction, ...action.transaction }
       })
     }
 

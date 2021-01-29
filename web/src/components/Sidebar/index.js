@@ -44,7 +44,7 @@ const Sidebar = () => {
           </div>
           <button
             className="btn btn-block btn-lg btn-primary rounded-0 h-50 align-items-center"
-            onClick={() => history.push('/checkout')}
+            onClick={() => history.push('/register')}
           >
             Finalizar Compra
           </button>
